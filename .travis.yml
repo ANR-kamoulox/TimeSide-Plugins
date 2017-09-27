@@ -1,0 +1,13 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+
+install:
+  - docker-compose --version
+  - docker-compose build
+script:
+  - docker-compose run app python -c"import timeside.core; timeside.core.list_processors()"
